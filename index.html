@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades de L.P. 1ºJOD - Luca Jin Lee Barros</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Luca Jin Lee Barros - 1ºJOD</h1>
+    <h2>Atividades de Lógica de Programação</h2>
+
+    <div class="tabs">
+        <button class="tablink" onclick="openTab(event, 'bimestre3')">3º Bimestre</button>
+        <button class="tablink" onclick="openTab(event, 'bimestre4')">4º Bimestre</button>
+    </div>
+
+    <div id="bimestre3" class="tabcontent">
+        <h2>Lista 1 - Exercícios de Arrays (Feita em dupla com Pietro Izar Lago)</h2>
+
+        <button onclick="abrirModal('modalSoma')">Exercício 1</button>
+        <div id="modalSoma" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modalSoma')">&times;</span>
+                <h2>Exercício 1:</h2>
+                <p>1. Receba 5 números em um vetor e exiba a soma deles. (Utilizar o laço de repetição “for”)</p>
+                <button onclick="receber()">Iniciar</button>
+                <div id="arraySoma"></div>
+                <div id="soma"></div>
+            </div>
+        </div>
+
+        <button onclick="abrirModal('modalOrdemAlfabetica')">Exercício 2</button>
+        <div id="modalOrdemAlfabetica" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modalOrdemAlfabetica')">&times;</span>
+                <h2>Exercício 2:</h2>
+                <p>2. Receba 4 palavras em um vetor e exiba em ordem alfabética.</p>
+                <button onclick="iniciarOrdemAlfabetica()">Iniciar</button>
+                <div id="resultadoOrdemAlfabetica"></div>
+            </div>
+        </div>
+
+        <button onclick="abrirModal('modalOrdemDecrescente')">Exercício 3</button>
+        <div id="modalOrdemDecrescente" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modalOrdemDecrescente')">&times;</span>
+                <h2>Exercício 3:</h2>
+                <p>3. Receba 5 números e exiba-os em ordem decrescente.</p>
+                <button onclick="iniciarOrdemDecrescente()">Iniciar</button>
+                <div id="resultadoOrdemDecrescente"></div>
+            </div>
+        </div>
+
+        <button onclick="abrirModal('modalMaiorElemento')">Exercício 4</button>
+        <div id="modalMaiorElemento" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modalMaiorElemento')">&times;</span>
+                <h2>Exercício 4:</h2>
+                <p>4. Receba 5 palavras em um vetor e exiba a quantidade de caracteres do maior elemento.</p>
+                <button onclick="iniciarMaiorElemento()">Iniciar</button>
+                <div id="arrayMaiorElemento"></div>
+                <div id="resultadoMaiorElemento"></div>
+            </div>
+        </div>
+
+        <button onclick="abrirModal('modalLinguagens')">Exercício 5</button>
+        <div id="modalLinguagens" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modalLinguagens')">&times;</span>
+                <h2>Exercício 5:</h2>
+                <p>5. Crie 3 vetores com elementos diferentes e concatene-os. Exiba na página o resultado.</p>
+                <button onclick="exibirLinguagens()">Iniciar</button>
+                <div>
+                    <h4>1º Vetor com os Elementos Recebidos:</h4>
+                    <div id="array1"></div>
+                    <h4>2º Vetor com os Elementos Recebidos:</h4>
+                    <div id="array2"></div>
+                    <h4>3º Vetor com os Elementos Recebidos:</h4>
+                    <div id="array3"></div>
+                    <h4>Vetor Concatenado com os Elementos Recebidos:</h4>
+                    <div id="array4"></div>
+                </div>
+            </div>
+        </div>
+
+        <button onclick="abrirModal('modalSomaExcedendo')">Exercício 6</button>
+        <div id="modalSomaExcedendo" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modalSomaExcedendo')">&times;</span>
+                <h2>Exercício 6:</h2>
+                <p>6. Receba 3 números em um vetor, se a soma exceder 100, deve-se exibir o maior valor, do contrário exibe-se o menor valor.</p>
+                <button onclick="iniciarSomaExcedendo()">Iniciar</button>
+                <div id="arraySomaExcedendo"></div>
+                <div id="resultadoSomaExcedendo"></div>
+            </div>
+        </div>
+
+        <br><br><br><br><br>
+        <h2>Lista 2 - Exercícios de Arrays Bi-dimensionais ( Feita em dupla com Pietro Izar Lago )</h2>
+
+        <button onclick="abrirModal('modalTabela')">Exercício 1</button>
+        <div id="modalTabela" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modalTabela')">&times;</span>
+                <h2>Exercício 1:</h2>
+                <p>1.  Crie um array bidimensional de 3 índices com 3 itens cada. Receba os valores de 
+                    cada índice via prompt e no final exiba a tabela de valores digitada e a soma de todos os números.</p>
+                <button onclick="iniciarTabela()">Iniciar</button>
+                <div id="arrayTabela"></div>
+                <div id="soma3x3"></div>
+            </div>
+        </div>
+
+        <button onclick="abrirModal('modalMultiplicação')">Exercício 2</button>
+        <div id="modalMultiplicação" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modalMultiplicação')">&times;</span>
+                <h2>Exercício 2:</h2>
+                <p>2. Crie um array bidimensional 3x3 onde os valores deverão ser inseridos via input e 
+                    coletados via querySelector. Receba um valor multiplicador e crie uma função que retorne um 
+                    novo array onde cada elemento do array original é multiplicado pelo valor indicado.</p>
+                <div id="inputs">
+                    <table border="1">
+                        <tr>
+                            <td><input type="number" id="input00"></td>
+                            <td><input type="number" id="input01"></td>
+                            <td><input type="number" id="input02"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="number" id="input10"></td>
+                            <td><input type="number" id="input11"></td>
+                            <td><input type="number" id="input12"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="number" id="input20"></td>
+                            <td><input type="number" id="input21"></td>
+                            <td><input type="number" id="input22"></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <label for="multiplicador">Multiplicador:</label>
+                    <input type="number" id="multiplicador">
+                    <br><br>
+                    <button onclick="iniciarMultiplicacao()">Iniciar</button>
+                </div>
+                <div id="resultado"></div>
+            </div>
+        </div>
+
+        <button onclick="abrirModal('modalMaiorValor3x3')">Exercício 3</button>
+        <div id="modalMaiorValor3x3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modalMaiorValor3x3')">&times;</span>
+                <h2>Exercício 3:</h2>
+                <p>3. Crie um array 3x3 com valores recebidos via prompt e ao final exiba os valores digitados e o maior valor entre eles.</p>
+                <button onclick="iniciarMaiorValor3x3()">Iniciar</button>
+                <div id="arrayMaiorValor3x3"></div>
+                <div id="maiorValor3x3"></div>
+            </div>
+        </div>
+
+        <button onclick="abrirModal('modalTiposDeValores3x3')">Exercício 4</button>
+        <div id="modalTiposDeValores3x3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="fecharModal('modalTiposDeValores3x3')">&times;</span>
+                <h2>Exercício 4:</h2>
+                <p>4. Crie um array 3x3 com valores recebidos via prompt contendo números e strings. Ao final exiba todos os 
+                    valores recebidos e os tipos de valor específico, número ou string.</p>
+                <button onclick="iniciarTiposDeValores3x3()">Iniciar</button>
+                <div id="arrayTiposDeValores3x3"></div>
+                <div id="tiposDeValores3x3"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="bimestre4" class="tabcontent">
+        <h2>4º Bimestre</h2>
+        <p>O código será atualizado quando as novas atividades serem divulgadas.</p>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
