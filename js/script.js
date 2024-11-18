@@ -172,6 +172,137 @@ function iniciarTiposDeValores3x3() {
   document.getElementById('tiposDeValores3x3').innerHTML = `<h2>Tipos de Valores:</h2><ul>${tiposHTML}</ul>`;
 }
 
+function iniciarParImpar() {
+  const numeros = [2, 3, 6, 7, 10, 13, 220, 19];
+  const resultado = numeros.map(num => (num % 2 === 0 ? 'par' : 'ímpar'));
+  document.getElementById('parImpar').innerHTML = resultado.join(', ');
+}
+
+function iniciarMaior10() {
+  const numeros = [5, 125, 9, 201, 3, 30, 145, 500, 2, 27];
+  const resultado = numeros.filter(num => num > 10).sort((a, b) => b - a);
+  document.getElementById('Maior10').innerHTML = resultado.join(', ');
+}
+
+function iniciarProdutos() {
+  const produtos = [
+    { nome: 'Caneta esferográfica', preco: 6.99 },
+    { nome: 'Kit de lápis coloridos', preco: 19.99 },
+    { nome: 'Lápis', preco: 1.99 },
+    { nome: 'Caderno', preco: 29.99 }
+];
+
+const total = produtos.reduce((acc, produto) => acc + produto.preco, 0);
+const maisCaro = produtos.reduce((acc, produto) => (produto.preco > acc ? produto.preco : acc), 0);
+const maisBarato = produtos.reduce((acc, produto) => (produto.preco < acc ? produto.preco : acc), produtos[0].preco);
+
+document.getElementById('produtos').innerHTML = `
+    Total: R$ ${total.toFixed(2)}, Mais Caro: R$ ${maisCaro}, Mais Barato: R$ ${maisBarato}
+`;
+}
+
+function abrirModalLista4Bimestre4() {
+  document.getElementById("modal-lista4-bimestre4").style.display = "block";
+}
+
+function fecharModalLista4Bimestre4() {
+  document.getElementById("modal-lista4-bimestre4").style.display = "none";
+}
+
+var notas = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0], 
+  [0, 0, 0],
+  [0, 0, 0]
+];
+
+function salvarNotas() {
+
+  notas[0][0] = parseFloat(document.getElementById('notaLPAluno1').value);
+  notas[1][0] = parseFloat(document.getElementById('notaLPAluno2').value);
+  notas[2][0] = parseFloat(document.getElementById('notaLPAluno3').value);
+  notas[3][0] = parseFloat(document.getElementById('notaLPAluno4').value);
+  notas[4][0] = parseFloat(document.getElementById('notaLPAluno5').value);
+
+  notas[0][1] = parseFloat(document.getElementById('notaDJWAluno1').value);
+  notas[1][1] = parseFloat(document.getElementById('notaDJWAluno2').value);
+  notas[2][1] = parseFloat(document.getElementById('notaDJWAluno3').value);
+  notas[3][1] = parseFloat(document.getElementById('notaDJWAluno4').value);
+  notas[4][1] = parseFloat(document.getElementById('notaDJWAluno5').value);
+
+  notas[0][2] = parseFloat(document.getElementById('notaOSAAluno1').value);
+  notas[1][2] = parseFloat(document.getElementById('notaOSAAluno2').value);
+  notas[2][2] = parseFloat(document.getElementById('notaOSAAluno3').value);
+  notas[3][2] = parseFloat(document.getElementById('notaOSAAluno4').value);
+  notas[4][2] = parseFloat(document.getElementById('notaOSAAluno5').value);
+}
+
+function calcularMedia(disciplina) {
+  var media, resultado;
+  var resultadoHTML = "<ul>";
+  
+  for (var i = 0; i < notas.length; i++) {
+      switch (disciplina) {
+          case 'LP':
+              media = notas[i][0];
+              break;
+          case 'DJW':
+              media = notas[i][1];
+              break;
+          case 'OSA':
+              media = notas[i][2];
+              break;
+          case 'Geral':
+              media = (notas[i][0] + notas[i][1] + notas[i][2]) / 3;
+              break;
+          default:
+              break;
+      }
+
+      if (media >= 6) {
+          resultado = 'Aprovado';
+      } else if (media >= 4 && media < 6) {
+          resultado = 'Recuperação';
+      } else {
+          resultado = 'Reprovado';
+      }
+
+      resultadoHTML += "<li>Aluno " + (i + 1) + ": Média de " + disciplina + " = " + media.toFixed(2) + " - " + resultado + "</li>";
+  }
+
+  resultadoHTML += "</ul>";
+  document.getElementById('notasSalvas').innerHTML = resultadoHTML;
+}
+
+function escolherDisciplina() {
+  salvarNotas();
+
+  var escolhaValida = false;
+  var disciplina;
+
+  while (!escolhaValida) {
+      disciplina = prompt("Escolha uma disciplina entre LP, DJW e OSA ou 'Geral' para a média geral.");
+
+      if (disciplina === 'LP' || disciplina === 'DJW' || disciplina === 'OSA' || disciplina === 'Geral') {
+          escolhaValida = true;
+          calcularMedia(disciplina);
+      } else {
+          alert("Escolha inválida! Tente novamente.");
+      }
+  }
+}
+function abrirModal(idModal) {
+  var modal = document.getElementById(idModal);
+  modal.style.display = "block";
+}
+
+function fecharModal(idModal) {
+  var modal = document.getElementById(idModal);
+  modal.style.display = "none";
+}
+
+
 function openTab(evt, tabName) {
   var tabcontent = document.getElementsByClassName("tabcontent");
   var tablinks = document.getElementsByClassName("tablink");
