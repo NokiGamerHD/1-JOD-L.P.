@@ -201,6 +201,108 @@ document.getElementById('produtos').innerHTML = `
 `;
 }
 
+function abrirModalLista4Bimestre4() {
+  document.getElementById("modal-lista4-bimestre4").style.display = "block";
+}
+
+function fecharModalLista4Bimestre4() {
+  document.getElementById("modal-lista4-bimestre4").style.display = "none";
+}
+
+var notas = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0], 
+  [0, 0, 0],
+  [0, 0, 0]
+];
+
+function salvarNotas() {
+
+  notas[0][0] = parseFloat(document.getElementById('notaLPAluno1').value);
+  notas[1][0] = parseFloat(document.getElementById('notaLPAluno2').value);
+  notas[2][0] = parseFloat(document.getElementById('notaLPAluno3').value);
+  notas[3][0] = parseFloat(document.getElementById('notaLPAluno4').value);
+  notas[4][0] = parseFloat(document.getElementById('notaLPAluno5').value);
+
+  notas[0][1] = parseFloat(document.getElementById('notaDJWAluno1').value);
+  notas[1][1] = parseFloat(document.getElementById('notaDJWAluno2').value);
+  notas[2][1] = parseFloat(document.getElementById('notaDJWAluno3').value);
+  notas[3][1] = parseFloat(document.getElementById('notaDJWAluno4').value);
+  notas[4][1] = parseFloat(document.getElementById('notaDJWAluno5').value);
+
+  notas[0][2] = parseFloat(document.getElementById('notaOSAAluno1').value);
+  notas[1][2] = parseFloat(document.getElementById('notaOSAAluno2').value);
+  notas[2][2] = parseFloat(document.getElementById('notaOSAAluno3').value);
+  notas[3][2] = parseFloat(document.getElementById('notaOSAAluno4').value);
+  notas[4][2] = parseFloat(document.getElementById('notaOSAAluno5').value);
+}
+
+function calcularMedia(disciplina) {
+  var media, resultado;
+  var resultadoHTML = "<ul>";
+  
+  for (var i = 0; i < notas.length; i++) {
+      switch (disciplina) {
+          case 'LP':
+              media = notas[i][0];
+              break;
+          case 'DJW':
+              media = notas[i][1];
+              break;
+          case 'OSA':
+              media = notas[i][2];
+              break;
+          case 'Geral':
+              media = (notas[i][0] + notas[i][1] + notas[i][2]) / 3;
+              break;
+          default:
+              break;
+      }
+
+      if (media >= 6) {
+          resultado = 'Aprovado';
+      } else if (media >= 4 && media < 6) {
+          resultado = 'Recuperação';
+      } else {
+          resultado = 'Reprovado';
+      }
+
+      resultadoHTML += "<li>Aluno " + (i + 1) + ": Média de " + disciplina + " = " + media.toFixed(2) + " - " + resultado + "</li>";
+  }
+
+  resultadoHTML += "</ul>";
+  document.getElementById('notasSalvas').innerHTML = resultadoHTML;
+}
+
+function escolherDisciplina() {
+  salvarNotas();
+
+  var escolhaValida = false;
+  var disciplina;
+
+  while (!escolhaValida) {
+      disciplina = prompt("Escolha uma disciplina entre LP, DJW e OSA ou 'Geral' para a média geral.");
+
+      if (disciplina === 'LP' || disciplina === 'DJW' || disciplina === 'OSA' || disciplina === 'Geral') {
+          escolhaValida = true;
+          calcularMedia(disciplina);
+      } else {
+          alert("Escolha inválida! Tente novamente.");
+      }
+  }
+}
+function abrirModal(idModal) {
+  var modal = document.getElementById(idModal);
+  modal.style.display = "block";
+}
+
+function fecharModal(idModal) {
+  var modal = document.getElementById(idModal);
+  modal.style.display = "none";
+}
+
+
 function openTab(evt, tabName) {
   var tabcontent = document.getElementsByClassName("tabcontent");
   var tablinks = document.getElementsByClassName("tablink");
